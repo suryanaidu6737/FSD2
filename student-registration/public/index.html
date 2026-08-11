@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration Form</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f2f2f2;
+}
+
+.register-box{
+    width:450px;
+    margin:40px auto;
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+h2{
+    text-align:center;
+    color:#003366;
+}
+
+table{
+    width:100%;
+}
+
+td{
+    padding:10px;
+}
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=number],
+select,
+textarea{
+    width:100%;
+    padding:8px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    box-sizing:border-box;
+}
+
+textarea{
+    resize:none;
+}
+
+.gender label{
+    margin-right:15px;
+}
+
+.buttons{
+    text-align:center;
+}
+
+input[type=submit],
+input[type=reset]{
+    background:#003366;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    margin:5px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+input[type=submit]:hover,
+input[type=reset]:hover{
+    background:#ff6600;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="register-box">
+
+<h2>Student Registration Form</h2>
+
+<form action="/register" method="POST">
+
+<table>
+
+<tr>
+<td><b>Full Name</b></td>
+<td>
+<input
+type="text"
+name="fullname"
+placeholder="Enter your full name"
+required>
+</td>
+</tr>
+
+<tr>
+<td><b>Password</b></td>
+<td>
+<input
+type="password"
+name="password"
+placeholder="Enter password"
+required>
+</td>
+</tr>
+
+<tr>
+<td><b>Email</b></td>
+<td>
+<input
+type="email"
+name="email"
+placeholder="Enter email"
+required>
+</td>
+</tr>
+
+<tr>
+<td><b>Phone</b></td>
+<td>
+<input
+type="text"
+name="phone"
+placeholder="Enter phone number"
+required>
+</td>
+</tr>
+
+<tr>
+<td><b>Gender</b></td>
+<td class="gender">
+
+<label>
+<input
+type="radio"
+name="gender"
+value="Male"
+required> Male
+</label>
+
+<label>
+<input
+type="radio"
+name="gender"
+value="Female"> Female
+</label>
+
+</td>
+</tr>
+
+<tr>
+<td><b>Course</b></td>
+<td>
+
+<select name="course" required>
+<option value="">--Select Course--</option>
+<option value="B.Tech">B.Tech</option>
+<option value="M.Tech">M.Tech</option>
+<option value="MCA">MCA</option>
+<option value="MBA">MBA</option>
+</select>
+
+</td>
+</tr>
+
+<tr>
+<td><b>Address</b></td>
+<td>
+
+<textarea
+name="address"
+rows="4"
+placeholder="Enter your address"
+required></textarea>
+
+</td>
+</tr>
+
+<tr>
+<td colspan="2" class="buttons">
+
+<input type="submit" value="Register">
+
+<input type="reset" value="Clear">
+
+</td>
+</tr>
+
+</table>
+
+</form>
+
+</div>
+
+</body>
+</html>
