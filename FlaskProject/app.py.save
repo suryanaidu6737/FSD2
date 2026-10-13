@@ -1,0 +1,43 @@
+ render_template, request
+import joblib
+
+app = Flask(__name__)
+
+# Load trained ML model
+model = joblib.load("models/student_model.pkl")
+
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+
+@app.route("/predict", methods=["POST"])
+def predict():
+
+    hours_studied = float(request.form["hours_studied"])
+    attendance = float(request.form["attendance"])
+    previous_score = float(request.form["previous_score"])
+    sleep_hours = float(request.form["sleep_hours"])
+    assignments_completed = float(
+        request.form["assignments_completed"]
+    )
+
+    input_data = [[
+        hours_studied,
+        attendance,
+        previous_score,
+        sleep_hours,
+        assignments_completed
+    ]]
+
+    prediction = model.predict(input_data)[0]
+
+    return render_template(
+        "index.html",
+        prediction=prediction
+    )
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
